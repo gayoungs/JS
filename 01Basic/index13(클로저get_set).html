@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //클로저를 이용한 세터
+        /*
+        function obj() {
+
+            var name = '홍길동';
+
+            return function (aaa) { //여기 매개변수로 set 할 값을 전달
+
+                name = aaa;
+                return name;
+
+            }
+        }
+
+        var result = obj();
+        console.log (result('이순신'));
+        */
+
+        //return {key : value}
+        //value에 function을 설정할 수 있음.
+        //person 함수의 return 값이 key : value, key : value로 구성
+        //setName은 매개변수를 전달해서 name값을 매개변수로 치환
+        //getName은 name을 반환
+
+        function person() {
+            var name = '홍길동';
+
+            return {'setName': function (aaa) {
+                name = aaa;
+            },
+            'getName' : function () {
+                return name;
+            }
+    
+            
+          };
+
+        }
+        
+        var obj = person();
+        obj.setName( '이순신' );
+        console.log( obj.getName() );
+    </script>
+
+
+</body>
+</html>
