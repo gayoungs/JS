@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    input은 지우는게 아니라 display를 제어하세요<br>
+
+    
+
+
+    <input type="text" placeholder="이름을 입력하세요" id="name" value="">
+    <button type="button" id="nameBtn" onclick="printName()">확인</button><br>
+    <div id="displayName"></div>
+
+    <input type="text" placeholder="할일을 적으세요" id="todo">
+    <button type="button" id="todoBtn" onclick="printTodo()">확인</button><br>
+    <ul id="table">
+        
+    </ul>
+
+    <script>
+        var nameBtn = document.getElementById("nameBtn");
+        var input = document.querySelectorAll("#todo");
+    
+        function printName() {
+            var name = document.getElementById("name");
+            if(name.value != "") {
+                document.getElementById("displayName").innerHTML = name.value + '님 안녕하세요';
+                name.style.display = "none";
+                nameBtn.style.display = "none";
+            }
+        }
+        
+        var count = 0;
+
+        function printTodo() {
+            var delBtn = document.createElement("button");
+            var li = document.createElement("li");
+            var todo = document.getElementById("todo");
+            var table = document.getElementById("table");
+            var text = document.createTextNode(todo.value);
+
+           li.appendChild(text);
+           li.appendChild(delBtn);
+           table.appendChild(li);
+
+
+           delBtn.innerHTML = 'X';
+
+          delBtn.onclick = function() {
+            li.remove();
+          }
+
+        }
+
+      
+
+
+            
+    
+
+
+    </script>
+
+</body>
+</html>
