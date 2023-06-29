@@ -54,7 +54,7 @@
     <section id="section1">
         <div class="content">
             <div class="left">
-                <div class="inner"><img src="profile.png"></div>
+                <div class="inner"><img src="사진/1.jpg"></div>
             </div>
             <div class="right">
                 <div class="inner">
@@ -68,7 +68,7 @@
     <section id="section2" style="display: none;">
         <div class="content">
             <div class="left">
-                <div class="inner"><img src="profile.png"></div>
+                <div class="inner"><img src="사진/2.jpg"></div>
             </div>
             <div class="right">
                 <div class="inner">
@@ -87,7 +87,7 @@
         var btn2 = document.getElementById("btn2");
         var section1 = document.getElementById("section1");
         var section2 = document.getElementById("section2");
-
+        /*
         btn2.onclick = function() {
             if(btn2.classList.contains("a")) {               
                 btn2.classList.remove("a");
@@ -100,8 +100,29 @@
                 section1.style.display = "none";
                 section2.style.display = "";
             }
-        };
+        }; */
 
+        btn2.onclick = function() {
+            if(btn2.classList.contains("a")) {  
+                btn2.classList.toggle("a");
+                btn2.innerHTML = "이름보기";
+                section2.style.display = "none";
+                section1.style.display = "";
+
+            } else {
+                btn2.classList.toggle("a");
+                btn2.innerHTML = "내용보기";
+                section1.style.display = "none";
+                section2.style.display = "";
+            }
+        };
+                
+
+
+
+
+
+        
         var btn1 = document.getElementById("btn1");
         var center = document.querySelector(".center");
         btn1.onclick = function() {
@@ -121,6 +142,9 @@
             section2.style.color = "white";
          }
         };
+        
+       
+        
 
     </script>
 
