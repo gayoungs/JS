@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>최신 관심 목록</h3>
+    <div class="cartList">
+
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var savedInfo = JSON.parse(localStorage.getItem('savedInfo'));
+            var cartList = document.querySelector('.cartList');
+            if (savedInfo && savedInfo.length > 0) {
+                for (var i = 0; i < savedInfo.length; i++) {
+                    var info = savedInfo[i];
+                    var img = document.createElement('img');
+                    img.src = info;
+                    img.width = 300;
+                    cartList.appendChild(img);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
